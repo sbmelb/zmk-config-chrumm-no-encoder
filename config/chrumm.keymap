@@ -1,0 +1,110 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+    behaviors {
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHIFT>, <&kp CAPS>;
+        };
+
+        hold1: hold1 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD1";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        ss: ss {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            label = "td_ss_dot";
+            bindings = <&s_dot>, <&ss_dot>;
+        };
+    };
+
+    macros {
+        s_dot: ss {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp S &kp DOT &kp SPACE>;
+            label = "SS";
+        };
+
+        ss_dot: s_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp S &kp S &kp DOT &kp SPACE>;
+            label = "S_DOT";
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        colemak_layer {
+            // --------------------------------------------------------------------------------------------------
+            // |  ESC  |  1   |  2   |  3   |  4   |  5   |   6   |  7    |  8   |  9   |   0   | MINUS |  DEL |
+            // |  TAB  |  Q   |  W   |  F   |  P   |  B   |   J   |  L    |  U   |  Y   |   ;   | LBKT  |  RBKT |
+            // |  MO 2 |  A   |  R   |  S   |  T   |  G   |   M   |  N    |  E   |  I   |   O   |  '    |  NUBS |
+            // |  TD 0 |  Z   |  X   |  C   |  D   |  V   |   K   |  H    |  ,   |  .   |   /   |  UP   |  RSFT |
+            // |  LCTR | LALT | MO 1 | SPACE| ENTER|      | ENTER | SPACE | BSPC | MO 3 | LEFT  | DOWN  |  RIGHT|
+
+            bindings = <
+&kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp MINUS  &kp DEL  &kp TAB  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMI  &kp LBKT  &kp RBKT  &mo 2  &kp A  &kp R  &kp S  &kp T  &kp G  &kp M  &kp N  &kp E  &kp I  &kp O  &kp APOS  &kp NUBS  &td0  &kp Z  &kp X  &kp C  &kp D  &kp V  &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp UP  &kp RS(RIGHT_SHIFT)  &kp LCTRL  &kp LALT  &mo 1  &hold1 RIGHT_SHIFT SPACE  &kp ENTER  &kp ENTER  &hold1 RSHFT SPACE  &kp BSPC  &mo 3  &kp LEFT  &kp DOWN  &kp RIGHT
+            >;
+        };
+
+        no_layer {
+            // -------------------------------------------------------------------------------------------------
+            // |       |      |      |      |      |      |       |       |      |      |   /   |   =   |  +  |
+            // |       |      |      |      |      |      |       |       |      |      |   7   |   8   |  9  |
+            // |       |      |      |      |      |      |       |       |      |      |   4   |   5   |  6  |
+            // |       |      |      |      |      |      |       |       |      |      |   1   |   2   |  3  |
+            // |       |      |      |      |      |      |       |       |      |      |   0   |   .   |  =  |
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp FSLH  &kp EQUAL  &kp PLUS  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N7  &kp N8  &kp N9  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N0  &kp PERIOD  &kp EQUAL
+            >;
+        };
+
+        fn_layer {
+            // ---------------------------------------------------------------------------------------------
+            // |       |  F1  |  F2  |  F3  |  F4  |  F5  |  F6   |  F7   |  F8  |  F9  |  F10  |  F11  |  F12  |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &ss  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        bt_layer {
+            // --------------------------------------------------------------------------------------------------
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+            // |       |      |      |      |      |      |       |       |      |      |       |       |       |
+
+            bindings = <
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR_ALL  &bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &sys_reset  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+    };
+};
