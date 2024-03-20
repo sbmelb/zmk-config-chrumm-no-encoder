@@ -64,7 +64,11 @@
             // |  LCTR | LALT | MO 1 | SPACE| ENTER|      | ENTER | SPACE | BSPC | MO 3 | LEFT  | DOWN  |  RIGHT|
 
             bindings = <
-&kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp MINUS  &kp DEL  &kp TAB  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMI  &kp LBKT  &kp RBKT  &mo 2  &kp A  &kp R  &kp S  &kp T  &kp G  &kp M  &kp N  &kp E  &kp I  &kp O  &kp APOS  &kp NUBS  &td0  &kp Z  &kp X  &kp C  &kp D  &kp V  &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp UP  &kp RS(RIGHT_SHIFT)  &kp LCTRL  &kp LALT  &mo 1  &hold1 RIGHT_SHIFT SPACE  &kp ENTER  &kp ENTER  &hold1 RSHFT SPACE  &kp BSPC  &mo 3  &kp LEFT  &kp DOWN  &kp RIGHT
+&kp ESC    &kp N1          &kp N2  &kp N3                    &kp N4     &kp N5  &kp N6     &kp N7              &kp N8     &kp N9   &kp N0          &kp MINUS  &kp DEL
+&kp TAB    &kp Q           &kp W   &kp F                     &kp P      &kp B   &kp J      &kp L               &kp U      &kp Y    &kp SEMI        &kp LBKT   &kp RBKT
+&mo 2      &hold1 LSHFT A  &kp R   &kp S                     &kp T      &kp G   &kp M      &kp N               &kp E      &kp I    &hold1 RSHFT O  &kp APOS   &kp NUBS
+&td0       &kp Z           &kp X   &kp C                     &kp D      &kp V   &kp K      &kp H               &kp COMMA  &kp DOT  &kp FSLH        &kp UP     &kp RS(RIGHT_SHIFT)
+&kp LCTRL  &kp LALT        &mo 1   &hold1 RIGHT_SHIFT SPACE  &kp ENTER          &kp ENTER  &hold1 RSHFT SPACE  &kp BSPC   &mo 3    &kp LEFT        &kp DOWN   &kp RIGHT
             >;
         };
 
@@ -77,7 +81,11 @@
             // |       |      |      |      |      |      |       |       |      |      |   0   |   .   |  =  |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp FSLH  &kp EQUAL  &kp PLUS  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N7  &kp N8  &kp N9  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N0  &kp PERIOD  &kp EQUAL
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp FSLH  &kp EQUAL   &kp PLUS
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N7    &kp N8      &kp N9
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N4    &kp N5      &kp N6
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1    &kp N2      &kp N3
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &kp N0    &kp PERIOD  &kp EQUAL
             >;
         };
 
@@ -90,7 +98,11 @@
             // |       |      |      |      |      |      |       |       |      |      |       |       |       |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &ss  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &ss     &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans   &trans   &trans
             >;
         };
 
@@ -103,7 +115,11 @@
             // |       |      |      |      |      |      |       |       |      |      |       |       |       |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR_ALL  &bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &sys_reset  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR_ALL
+&bootloader  &trans        &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&sys_reset   &trans        &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans       &trans        &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans       &trans        &trans        &trans        &trans                      &trans        &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
